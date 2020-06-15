@@ -9,39 +9,7 @@ export default App = ()=>{
       return(
         <View>
                  
-                 <FlatList
-          style={{
-            backgroundColor:"#ad0a67",
-          }}
-          data={
-            [
-              {key: 'Devin'},
-              {key: 'Dan'},
-              {key: 'Dominic'},
-              {key: 'Jackson'},
-              {key: 'James'},
-              {key: 'Joel'},
-              {key: 'John'},
-              {key: 'Jillian'},
-              {key: 'Jimmy'},
-              {key: 'Julie'},
 
-            ]
-          }
-          renderItem={({item})=>{
-            return(
-              <Text style={{
-                padding: 40,
-                fontSize: 30,
-                borderWidth: 7,
-                borderColor:"#85d11b",
-                backgroundColor:"#7766ee",
-                borderRadius:15,
-              }}>{item.key}</Text>
-            )
-          }}>
-            
-          </FlatList>
           <SectionList
           sections={[
             {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
