@@ -7,40 +7,20 @@ const logo = {
 };
 export default App = ()=>{
       return(
-        <View>
-                 
+        <View style={style.style1}>
+          <View style={{width:40,height:45,backgroundColor:"red"}}/>
+          <View style={{width:40,height:45,backgroundColor:"green"}}/>
+          <View style={{width:40,height:45,backgroundColor:"blue"}}/>
 
-          <SectionList
-          sections={[
-            {title: 'D', data: ['Pratyush', 'Dan', 'Dominic']},
-            {title: 'J', data: ['Jha', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-          keyExtractor={(item, index) => index}
-        />
-      
         </View>
         
       )
 }
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
+const style=StyleSheet.create({
+  style1:{
+      marginTop:"12%",
+      flex:1,
+      flexDirection:'row',
+      alignSelf:"center",
   },
 })
