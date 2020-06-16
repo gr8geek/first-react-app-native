@@ -29,14 +29,16 @@ class App extends Component{
   calculate(){
     if(this.state.stack.length>0){
       str=""
+      
       var i=0
       for(i=0;i<this.state.stack.length;i++){
         str=str+this.state.stack[i]
       }
+      console.log("string",str)
       try{
         //this.displayInput(str)
         var ans=eval(str)
-        this.display(num.toString(10))
+        this.display(ans.toString(10))
       }
       catch(err){
         var ans="Math/Syntax Error"
@@ -46,99 +48,80 @@ class App extends Component{
   }
 
   Pressed(prop){
+    var flag=1
     console.log(prop)
       switch(prop){
         case "D":
-          if(this.state.stack.length>0){
+          if(this.state.stack.length>=0){
             this.setState((old)=>{
                 stack:old.stack.pop()
             }
             )
+          if(this.state.stack.length==0){
+            this.setState({
+              inputText:"",
+              displayText:""
+            })
+          }
           }
           break;
         case "+":
-          this.setState((old)=>{
-            stack:old.stack.push("+")
-        })
+          this.state.stack.push("+")
           break;
         case "/":
-          this.setState((old)=>{
-            stack:old.stack.push("/")
-        })
+         this.state.stack.push("/")
           break;
         case "*":
-          this.setState((old)=>{
-            stack:old.stack.push("*")
-        })
+          this.state.stack.push("*")
+          
             break;
         case "-":
-          this.setState((old)=>{
-            stack:old.stack.push("-")
-        })
+          this.state.stack.push("-")
           break;
         case "C":
-          this.setState((old)=>{
-            stack:[]
-        })
+          this.state.stack=[]
+          this.setState({
+            inputText:""
+          })
+          flag=0
           break;
         case "=":
-          this.setState((old)=>{
-            stack:old.stack.push("=")
-        })
+          this.state.stack.push("=")
           break;
         case "0":
-          this.setState((old)=>{
-            stack:old.stack.push("0")
-        })
+          this.state.stack.push("0")
           break;
         case "1":
-          this.setState((old)=>{
-            stack:old.stack.push("1")
-        })
+          this.state.stack.push("1")
           break;
         case "2":
-          this.setState((old)=>{
-            stack:old.stack.push("2")
-        })
+          this.state.stack.push("2")
           break;
         case "3":
-          this.setState((old)=>{
-            stack:old.stack.push("3")
-        })
+          this.state.stack.push("3")
           break;
         case "4":
-          this.setState((old)=>{
-            stack:old.stack.push("4")
-        })
+          this.state.stack.push("4")
           break;
         case "5":
-          this.setState((old)=>{
-            stack:old.stack.push("5")
-        })
+          this.state.stack.push("5")
           break;
         case "6":
-          this.setState((old)=>{
-            stack:old.stack.push("6")
-        })
+          this.state.stack.push("6")
           break;
           
         case "7":
-          this.setState((old)=>{
-            stack:old.stack.push("7")
-        })
+          this.state.stack.push("7")
           break;
         case "8":
-          this.setState((old)=>{
-            stack:old.stack.push("8")
-        })
+          this.state.stack.push("8")
           break;
         case "9":
-          this.setState((old)=>{
-            stack:old.stack.push("9")
-        })
+          this.state.stack.push("9")
           break; 
       }
       console.log("STACk",this.state.stack)
+      if(flag==1)
       this.calculate()
   }
   render(){
@@ -148,11 +131,25 @@ class App extends Component{
           <Text
           style={{
             fontSize:50,
-            color:"#ffffff"
+            color:"#ffffff",
+            position:"relative",
+            paddingTop:"7%",
+            paddingLeft:"4%",
           }}>{this.state.displayText}</Text>
         </View>
         <View style={style.input}>
-          <Text>{this.state.inputText}</Text>
+          <Text
+          style={{
+            fontSize:35,
+            color:"#fff",
+            position:"relative",
+            paddingTop:"7%",
+            paddingBottom:"10%",
+            paddingRight:"5%",
+            justifyContent:"flex-end"
+
+            
+          }}>{this.state.inputText}</Text>
         </View>
         <View style={{flexDirection:"row",height:"100%",width:"100%"}}>
           <View style={style.operators}>
