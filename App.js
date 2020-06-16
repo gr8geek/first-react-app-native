@@ -34,18 +34,20 @@ class App extends Component{
         str=str+this.state.stack[i]
       }
       try{
-        this.displayInput(str)
+        //this.displayInput(str)
         var ans=eval(str)
         this.display(num.toString(10))
       }
       catch(err){
         var ans="Math/Syntax Error"
       }
+      this.displayInput(str)
     }
   }
 
   Pressed(prop){
-      switch(prop.op){
+    console.log(prop)
+      switch(prop){
         case "D":
           if(this.state.stack.length>0){
             this.setState((old)=>{
@@ -136,6 +138,7 @@ class App extends Component{
         })
           break; 
       }
+      console.log("STACk",this.state.stack)
       this.calculate()
   }
   render(){
@@ -153,45 +156,45 @@ class App extends Component{
         </View>
         <View style={{flexDirection:"row",height:"100%",width:"100%"}}>
           <View style={style.operators}>
-            <Text style={text.op} onPress={this.Pressed(op="D")}>D</Text>
-            <Text style={text.op} onPress={this.Pressed(op="+")}>+</Text>
-            <Text style={text.op} onPress={this.Pressed(op="/")}>/</Text>
-            <Text style={text.op} onPress={this.Pressed(op="*")}>*</Text>
-            <Text style={text.op} onPress={this.Pressed(op="-")}>-</Text>
-            <Text style={text.op} onPress={this.Pressed(op="C")}>C</Text>
-            <Text style={text.op} onPress={this.Pressed(op="=")}>=</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("D")}>D</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("+")}>+</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("/")}>/</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("*")}>*</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("-")}>-</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("C")}>C</Text>
+            <Text style={text.op} onPress={()=>this.Pressed("=")}>=</Text>
 
           </View>
             <View style={style.numbers}>
               <View style={style.column}>
                 <View style={{flexDirection:"row",
                 width:"100%"}}>
-                  <Text style={text.txtLeftTop} onPress={this.Pressed(op="1")}>1</Text>
-                  <Text style={text.txtTop}     onPress={this.Pressed(op="2")}>2</Text>
-                  <Text style={text.txtTop}     onPress={this.Pressed(op="3")}>3</Text>
+                  <Text style={text.txtLeftTop} onPress={()=>this.Pressed("1")}>1</Text>
+                  <Text style={text.txtTop}     onPress={()=>this.Pressed("2")}>2</Text>
+                  <Text style={text.txtTop}     onPress={()=>this.Pressed("3")}>3</Text>
                 </View>
               </View>
               <View style={style.column}>
               <View style={{flexDirection:"row",
                 width:"100%"}}>
-                  <Text style={text.txtLeft} onPress={this.Pressed(op="4")}>4</Text>
-                  <Text style={text.txt}     onPress={this.Pressed(op="5")}>5</Text>
-                  <Text style={text.txt}     onPress={this.Pressed(op="6")}>6</Text>
+                  <Text style={text.txtLeft} onPress={()=>this.Pressed("4")}>4</Text>
+                  <Text style={text.txt}     onPress={()=>this.Pressed("5")}>5</Text>
+                  <Text style={text.txt}     onPress={()=>this.Pressed("6")}>6</Text>
                 </View>
               </View>
               <View style={style.column}>
               <View style={{flexDirection:"row",
                 width:"100%"}}>
-                  <Text style={text.txtLeft} onPress={this.Pressed(op="7")}>7</Text>
-                  <Text style={text.txt}     onPress={this.Pressed(op="8")}>8</Text>
-                  <Text style={text.txt}     onPress={this.Pressed(op="9")}>9</Text>
+                  <Text style={text.txtLeft} onPress={()=>this.Pressed("7")}>7</Text>
+                  <Text style={text.txt}     onPress={()=>this.Pressed("8")}>8</Text>
+                  <Text style={text.txt}     onPress={()=>this.Pressed("9")}>9</Text>
                 </View>
               </View>
               <View style={style.column}>
               <View style={{flexDirection:"row",
                 width:"100%"}}>
                   <Text style={text.txtZero} ></Text>
-                  <Text style={text.txtZero} onPress={this.Pressed(op="0")}>0</Text>
+                  <Text style={text.txtZero} onPress={()=>this.Pressed("0")}>0</Text>
                   <Text style={text.txtZero} ></Text>
                 </View>
               </View>
